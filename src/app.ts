@@ -40,6 +40,13 @@ const fetchedUserData = {
 
 console.log(fetchedUserData?.job?.title);
 
+const userInput = "";
+//const userInput = undefined;
+
+const storedData = userInput ?? "DEFAULT";
+
+console.log(storedData);
+
 const result = add("Dan", "the Man");
 result.split(" ");
 
