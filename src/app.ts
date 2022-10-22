@@ -32,6 +32,14 @@ function add(a: Combinable, b: Combinable) {
   return a + b;
 }
 
+const fetchedUserData = {
+  id: "u1",
+  name: "Max",
+  job: { title: "CEO", description: "Private Company" },
+};
+
+console.log(fetchedUserData?.job?.title);
+
 const result = add("Dan", "the Man");
 result.split(" ");
 
