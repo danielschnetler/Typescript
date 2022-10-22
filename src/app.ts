@@ -11,12 +11,11 @@
 //   data.split(" ");
 // });
 
-function merge<T extends {}, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 
 console.log(merge({ name: "Dan" }, { age: 39 }));
 
 const mergedObj = merge({ name: "Dan", hobbies: ["Running"] }, { age: 39 });
-
 console.log(mergedObj.age);
