@@ -96,7 +96,7 @@ class Product {
   }
 }
 
-function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor) {
+function autoBind(_: any, _2: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,
@@ -112,7 +112,7 @@ function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor) {
 class Printer {
   message = "This works!";
 
-  @AutoBind
+  @autoBind
   showMessage() {
     console.log(this.message);
   }
@@ -153,7 +153,7 @@ function PositiveNumber(target: any, propName: string) {
   };
 }
 
-function validate(obj: any) {
+function Validate(obj: any) {
   const objValidatorConfig = registeredValidators[obj.constructor.name];
   if (!objValidatorConfig) return true;
   let isValid = true;
@@ -194,7 +194,7 @@ courseForm.addEventListener("submit", (event) => {
   const price = +priceEl.value;
 
   const createdCourse = new Course(title, price);
-  if (!validate(createdCourse)) {
+  if (!Validate(createdCourse)) {
     alert("Invalid input, please try again");
     return;
   }
