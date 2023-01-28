@@ -167,7 +167,18 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     super("project-list", "app", false, `${type}-projects`);
     this.assignedProjects = [];
 
-    this.configure();
+    projectState.addListener((projects: Project[]) => {
+      const relevantProjects = projects.filter((prj) => {
+        if (this.type === "active") {
+          return prj.status === ProjectStatus.Active;
+        }
+        return prj.status === ProjectStatus.Finished;
+      });
+      this.assignedProjects = relevantProjects;
+      this.renderProjects();
+    });
+
+    this.attach();
     this.renderContent();
   }
 
@@ -175,6 +186,7 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     const listEl = document.getElementById(
       `${this.type}-projects-list`
     ) as HTMLUListElement;
+    listEl.innerHTML = "";
     listEl.innerHTML = "";
     for (const prjItem of this.assignedProjects) {
       const listItem = document.createElement("li");
