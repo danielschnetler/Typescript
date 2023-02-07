@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: install node v12
+    - name: install node LTS v18.4.0
       uses: actions/setup-node@v1
       with:
-        node-version: 16
-    - name: yarn install
-      run: yarn install
-    - name: tsc
-      uses: iCrawl/action-tsc@v1
+        node-version: 18.4.0
+    - name: npm install
+      run: npm install
+    - name: build
+      run: npm run build
