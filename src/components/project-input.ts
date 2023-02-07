@@ -1,10 +1,10 @@
-import { Component } from "./base-components.js";
-import { AutoBind } from "../decorators/autobind.js";
+import Cmp from "./base-components.js";
+import { AutoBind as Autobind } from "../decorators/autobind.js";
 import { Validatable, validate } from "../util/validation.js";
 import { projectState } from "../state/project-state.js";
 
 //ProjectInput Class
-export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
+export class ProjectInput extends Cmp<HTMLDivElement, HTMLFormElement> {
   titleInputElement: HTMLInputElement;
   descriptionInputElement: HTMLInputElement;
   peopleInputElement: HTMLInputElement;
@@ -70,7 +70,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     this.peopleInputElement.value = "";
   }
 
-  @AutoBind
+  @Autobind
   private submitHandler(event: Event) {
     event.preventDefault();
     console.log(this.titleInputElement.value);
