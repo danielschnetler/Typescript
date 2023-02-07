@@ -55,4 +55,5 @@ export class ProjectState extends State<Project> {
   }
 }
 
+//console.log("Only runs once for all imports");
 export const projectState = ProjectState.getInstance();
