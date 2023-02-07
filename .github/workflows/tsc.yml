@@ -16,7 +16,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 18.4.0
-    - name: yarn install
-      run: yarn install
-    - name: tsc
+    - name: npm install
+      run: npm install
+    - name: build
       uses: iCrawl/action-tsc@v1
+      run: npm run build
