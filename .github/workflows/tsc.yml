@@ -19,5 +19,4 @@ jobs:
     - name: npm install
       run: npm install
     - name: build
-      uses: iCrawl/action-tsc@v1
       run: npm run build
